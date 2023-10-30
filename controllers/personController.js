@@ -33,6 +33,7 @@ export const updatePerson = async (req, res) => {
     if (!updatedPerson) {
       return res.status(404).json({ error: "Person not found" });
     }
+    res.json({ message: chalk.green("Person updated successfully") });
 
     res.json(updatedPerson);
   } catch (error) {
@@ -48,8 +49,9 @@ export const deletePerson = async (req, res) => {
     if (!deletedPerson) {
       return res.status(404).json({ error: "Person not found" });
     }
+    res.json({ message: chalk.green("Person deleted successfully") });
   } catch (error) {
-    console.error(chalk.red("Error fetching people:"), error.message);
+    console.error(chalk.red("Error deleting person"), error.message);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
