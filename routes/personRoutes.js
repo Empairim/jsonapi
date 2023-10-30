@@ -1,4 +1,4 @@
-import { router } from "express";
+import express from "express";
 
 import * as personController from "../controllers/personController.js";
 

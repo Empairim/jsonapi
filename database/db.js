@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import chalk from "chalk";
 
 const connectDB = async () => {
   try {
@@ -6,7 +7,7 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log("Connected to MongoDB");
+    console.log(chalk.blue("Connected to MongoDB"));
   } catch (error) {
     console.error("Error connecting to MongoDB:", error.message);
     process.exit(1);

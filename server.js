@@ -1,10 +1,14 @@
 import express from "express";
-import mongoose from "mongoose";
+import connectDB from "./database/db.js";
+import personRoutes from "./routes/personRoutes.js";
+import chalk from "chalk";
 
 const app = express();
-
+const PORT = 3030;
+connectDB();
 app.use(express.json());
+app.use("/api", personRoutes);
 
-app.listen(3030, () => {
-  console.log("Server Up on 3030 ");
+app.listen(PORT, () => {
+  console.log(chalk.green(`Server Up on ${PORT} `));
 });
